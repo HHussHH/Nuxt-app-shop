@@ -1,16 +1,18 @@
 <template>
   <div>
-    <p>Products details for {{ id }}</p>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore,
-      accusantium sapiente. Qui animi nam ut consequuntur quasi praesentium
-      nobis iusto!
-    </p>
+    <ProductDetails :product="product" />
   </div>
 </template>
 
 <script setup>
 const { id } = useRoute().params;
+const { data: product } = await useFetch(
+  `https://fakestoreapi.com/products/${id}`,
+  { key: id }
+);
+definePageMeta({
+  layout: "products",
+});
 </script>
 
 <style scoped></style>
