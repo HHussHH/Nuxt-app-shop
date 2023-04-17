@@ -2,19 +2,17 @@
   <div>
     <h2>About</h2>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident sunt
-      consectetur alias quos repellendus aperiam sed, neque reprehenderit. Odio,
-      dignissimos.
+      On this page u can see how i work with server api and get data into
+      currencyapi.
     </p>
-    <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident sunt
-      consectetur alias quos repellendus aperiam sed, neque reprehenderit. Odio,
-      dignissimos.
-    </p>
+
+    <div>{{ data }}</div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const { data } = await useFetch("/api/currency/GBP");
+</script>
 
 <style scoped>
 h2 {
